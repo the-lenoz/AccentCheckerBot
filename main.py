@@ -11,6 +11,11 @@ from aiogram.types import ReplyKeyboardMarkup, KeyboardButton
 with open("config.json", "r", encoding="utf-8") as f:
     config = json.load(f)
 
+if not os.path.exists("BOT_TOKEN"):
+    open("BOT_TOKEN", "w").write("Поместите сюда токен бота")
+    print("Введите токен в файл BOT_TOKEN")
+    exit(1)
+
 # Загрузка токена бота
 with open("BOT_TOKEN", "r", encoding="utf-8") as f:
     BOT_TOKEN = f.read().strip()
